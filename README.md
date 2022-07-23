@@ -112,10 +112,11 @@ The main algorithm used to detect the road lane is a variation of the sliding wi
 1. Locate all non-zero (white) pixels in a region passed as an argument.
 2. Calculate the average x-coordinate of the white pixels (if none, use same x-coordinate from before), and store it.
 3. Iterate until reaching the top of the image by moving the slider.
-<\br>
+<br/>
 The sliding window algorithm is used twice, one for the left edge and the second for the right edge of the lane.
 
 ```cpp
+
 vector<Point2f> slidingWindow(Mat image, Rect rec){
     vector<Point2f> points;
     bool done = false;
@@ -194,6 +195,7 @@ As a further step, I'll be combining this project with the traffic sign recongit
 ## References:
 
 [1] Tejas Mahale, Chaoran Chen, Wenhui Zhan. “End to End Video Segmentation for Driving: Lane Detection for Autonomous Car”.
+<br /><br />
 [2] Shrutika Pokale, Deeplaxmi Niture. "On-board Camera-based Lane and Traffic Sign Detection for 2 Wheeler HeadLamp", 2022 IEEE 7th International conference for Convergence in Technology, pp.1-6.
 
 

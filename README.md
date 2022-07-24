@@ -71,7 +71,7 @@ Starting with this technique, we define the region of interest in each frame of 
 
 Original View           |  Bird's Eye view
 :-------------------------:|:-------------------------:
-![original view](assets/originalview.png) |  ![Bird view](assets/birdview.png)
+<img src="assets/originalview.png" width="500" > |  <img src="assets/birdview.png" width="500" >
 
 ```cpp
 // Points of interest region (for bird's eye view)   
@@ -129,8 +129,7 @@ dilate(processed, processed, size);
 Mat size = Mat::ones(14, 14, CV_8U);
 erode(processed, processed, size);
 ```
-
-![Post processing road lane](assets/postprocess.png)
+<img src="assets/postprocess.png" width="500" >
 
 ### Sliding Window Algorithm
 
@@ -141,7 +140,7 @@ The main algorithm used to detect the road lane is a variation of the sliding wi
 <br/>
 The sliding window algorithm is used twice, one for the left edge and the second for the right edge of the lane.
 
-![Sliding window algorithm](assets/swalgo.png)
+<img src="assets/swalgo.png" width="500" >
 
 ```cpp
 

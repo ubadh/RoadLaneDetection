@@ -6,6 +6,9 @@
 
 With the emergence of Autonomous cars and the evolution of the Advanced Driver Assistance Systems (ADASs), Road Lane Detection has been playing a major role in lessening road accidents and increasing driving safety. The detection of ego lanes with their corresponding right and left boundaries is of great importance as they provide contextual information, improve lane-based navigation, and help keep self-driving cars within their proper lanes. Hence why, throughout this project, I attempted to implement a real-time algorithm that would detect lanes on a highway.
 
+## Demo
+
+![Demo of the Real Time Road Lane Detector](assets/demo-2.gif)
 
 ## Table of contents:
 
@@ -66,6 +69,10 @@ The program follows a rigorous approach to detecting the road lanes in real-time
 
 Starting with this technique, we define the region of interest in each frame of the original image using a trial and error method, then set the size for th image to be processed. In here, I have chosen 640x480px. We then call getPerspectiveTransform() that provides us with the transformation matrix. We also have to prepare an inverted transformation matrix that we’ll need to transform the points that we will find on the bird’s eye image back into the original size.
 
+Original View           |  Bird's Eye view
+:-------------------------:|:-------------------------:
+![original view](assets/originalview.png) |  ![Bird view](assets/birdview.png)
+
 ```cpp
 // Points of interest region (for bird's eye view)   
 orgPoints[0] = Point(1380, 1090);
@@ -123,6 +130,8 @@ Mat size = Mat::ones(14, 14, CV_8U);
 erode(processed, processed, size);
 ```
 
+![Post processing road lane](assets/postprocess.png)
+
 ### Sliding Window Algorithm
 
 The main algorithm used to detect the road lane is a variation of the sliding window algorithm. It follows three main steps.
@@ -131,6 +140,8 @@ The main algorithm used to detect the road lane is a variation of the sliding wi
 3. Iterate until reaching the top of the image by moving the slider.
 <br/>
 The sliding window algorithm is used twice, one for the left edge and the second for the right edge of the lane.
+
+![Sliding window algorithm](assets/swalgo.png)
 
 ```cpp
 

@@ -1,8 +1,11 @@
 # 🛣️ &nbsp; Real Time Road Lane Detection &nbsp;  🛣️
 
+![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) &nbsp; ![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
+
 ## Abstract
 
 With the emergence of Autonomous cars and the evolution of the Advanced Driver Assistance Systems (ADASs), Road Lane Detection has been playing a major role in lessening road accidents and increasing driving safety. The detection of ego lanes with their corresponding right and left boundaries is of great importance as they provide contextual information, improve lane-based navigation, and help keep self-driving cars within their proper lanes. Hence why, throughout this project, I attempted to implement a real-time algorithm that would detect lanes on a highway.
+
 
 ## Table of contents:
 
@@ -17,10 +20,6 @@ With the emergence of Autonomous cars and the evolution of the Advanced Driver A
     - [Visualization](#visualization) <br/>
 - [Improvements](#improvements)  <br/>
 - [References](#references)
-
-## Technologies:
-
-![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) &nbsp; ![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
 
 ## Requirements:
 
@@ -91,7 +90,7 @@ invert(birdMatrix, invertedbirdMatrix);
 
 ### Image Processing:
 
-#### Masking the white regions:
+- #### Masking the white regions:
 
 To mask the white regions, I have used the inRange() function to get all pixels with the colors ranging from very light gray Scalar(195,195,195) to white Scalar(255, 255, 255).
 
@@ -103,21 +102,21 @@ Mat processed;
 bitwise_and(img, whiteArea, processed);
 ```
 
-#### Gaussian blur:
+- #### Gaussian blur:
 
 ```cpp
 const Size kernel = Size(9, 9);
 GaussianBlur(processed, processed, kernel, 0);
 ```
 
-#### Erosion:
+- #### Erosion:
 
 ```cpp
 Mat size = Mat::ones(14, 14, CV_8U);
 dilate(processed, processed, size);
 ```
 
-#### Dilation:
+- #### Dilation:
 
 ```cpp
 Mat size = Mat::ones(14, 14, CV_8U);

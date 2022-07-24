@@ -23,17 +23,10 @@ int main(){
     Point2f newPoints[4];
     
     // Points of interest area (for bird's eye view)
-    
     orgPoints[0] = Point(1380, 1090);
     orgPoints[1] = Point(2280, 1090);
     orgPoints[2] = Point(3180, 1740);
     orgPoints[3] = Point(0, 1740);
-
-    
-    // orgPoints[0] = Point(0, 0);
-    // orgPoints[1] = Point(3840, 0);
-    // orgPoints[2] = Point(3840, 2160);
-    // orgPoints[3] = Point(0, 2160);
     
     // Points of output
     newPoints[0] = Point(0, 0);
@@ -108,7 +101,7 @@ int main(){
             allPts.push_back(Point(outPts[i].x, outPts[i].y));
         }
         allPts.push_back(Point(outPts[outPts.size() - 1].x, outPts[outPts.size() - 1].y));
-        imshow("Post processing: ", processed);
+        //imshow("Post processing: ", processed);
         Mat out;
         // Convert from Gray to RGB
         cvtColor(processed, out, COLOR_GRAY2BGR);
@@ -122,7 +115,7 @@ int main(){
 
         // Sliding window algorithm, with starting rectangle
         pts = slidingWindow(processed, Rect(480, 420, 160, 60));
-        imshow("Post processing: ", processed);
+        //imshow("Post processing: ", processed);
         perspectiveTransform(pts, outPts, invertedbirdMatrix);
         
         // Display the points
@@ -146,8 +139,8 @@ int main(){
         addWeighted(org, 1, overlay, 0.5, 0, org);
 
         //Show the result
-        // imshow("Post processing: ", out);
-        // imshow("Original: ", org);
+        imshow("Post processing: ", out);
+        imshow("Original: ", org);
         if (waitKey(50) > 0)
             break;
     }

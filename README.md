@@ -4,14 +4,32 @@
 
 With the emergence of Autonomous cars and the evolution of the Advanced Driver Assistance Systems (ADASs), Road Lane Detection has been playing a major role in lessening road accidents and increasing driving safety. The detection of ego lanes with their corresponding right and left boundaries is of great importance as they provide contextual information, improve lane-based navigation, and help keep self-driving cars within their proper lanes. Hence why, throughout this project, I attempted to implement a real-time algorithm that would detect lanes on a highway.
 
+## Table of contents:
+
+- [Requirements](#requirements) <br/>
+    - [Homebrew](#homebrew) <br/>
+    - [OpenCV](#opencv) <br/>
+- [How to run the program](#how-to-run-the-program)  <br/>
+- [Algorithm & Techniques](#algorithm--techniques)  <br/>
+    - [Bird's eye view](#converting-the-angle-to-a-birds-eye-view) <br/>
+    - [Image processing](#image-processing) <br/>
+    - [Sliding Window Algorithm](#sliding-window-algorithm) <br/>
+    - [Visualization](#visualization) <br/>
+- [Improvements](#improvements)  <br/>
+- [References](#references)
+
+## Technologies:
+
+![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) &nbsp; ![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
+
 ## Requirements:
 
 ### Homebrew
 
 If on macOS, use the following command to install Homebrew:
 
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```bash
+> /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 ### OpenCV:
@@ -20,22 +38,22 @@ If on macOS, follow the instructions to install openCV:
 
 1. Install OpenCV
 
-```
-brew install opencv
+```bash
+> brew install opencv
 ```
 
 2. Install pkg-config
 
-```
-brew install pkg-config
+```bash
+> brew install pkg-config
 ```
 
-## Run the Program:
+## How to run the Program:
 
 Use the following commands
 
-```
-g++ $(pkg-config --cflags --libs opencv) -std=c++11  main.cpp -o output
+```bash
+> g++ $(pkg-config --cflags --libs opencv) -std=c++11  main.cpp -o output
 ./output
 ```
 
